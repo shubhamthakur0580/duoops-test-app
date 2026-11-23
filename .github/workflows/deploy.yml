@@ -1,0 +1,17 @@
+name: Build & Deploy Microservice to Production
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Deploy application
+        run: |
+          echo "Deploying sample-backend microservice to Kubernetes cluster"
+          echo "Target namespace: demo"
+          echo "Commit SHA: ${{ github.sha }}"
